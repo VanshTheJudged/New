@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 header {
@@ -37,20 +38,24 @@ nav ul li a {
 }
 
 .auth-buttons button {
-    margin-left: 10px;
-    padding: 8px 15px;
     border: none;
     cursor: pointer;
-    
 }
 
 .sign-in {
-    background-color: #5e60ce;
-    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #ddd;
 }
 
-.register {
-    background-color: #6c63ff;
+.topregister {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #5e60ce;
     color: #fff;
 }
 
@@ -148,12 +153,17 @@ footer {
 .hero-image img:first-child{
     width: 600px;
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: 50%;
+    right: -10%;
+    transform: rotate(30deg);
 }
 
 .hero-image :nth-child(2) {
     position: relative;
-    z-index: 10;
+    z-index: 100;
     width: 500px;
+}
+.separation{
+    height: 8px;
+    background-color: rgb(48, 48, 48);
 }

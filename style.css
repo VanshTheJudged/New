@@ -1,67 +1,63 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 
 header {
-    background-color: #f3f3f3;
-    padding: 15px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: #fff;
+    padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-nav{
+
+.logo h1 {
+    margin: 0;
+    color: #5e60ce;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 190px;
-    position: relative;
-    z-index: 10;
 }
-.logo {
-    font-size: 24px;
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
     font-weight: bold;
 }
-div img{
-    width: 50px;
-}
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+
+.auth-buttons button {
+    border: none;
+    cursor: pointer;
 }
 
-.nav-links li {
-    margin: 0 10px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #000;
-}
-
-.auth-buttons {
-    position: relative;
-    /* display: flex; */
-    gap: 50px;
-}
-
-button {
+.sign-in {
     padding: 10px 20px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-}
-
-.sign-in {
     background-color: #ddd;
 }
 
-.register {
-    background-color: #7178f8;
+.topregister {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #5e60ce;
     color: #fff;
 }
-
 .hero {
     display: flex;
     padding: 50px;
@@ -95,18 +91,32 @@ button {
     margin-bottom: 15px;
 }
 
-.footer-container {
+
+footer {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
-    background-color: #f3f3f3;
 }
 
-.footer-logo {
-    font-size: 20px;
-    font-weight: bold;
+.footer-content h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
 }
 
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 5px;
+}
 .quick-links ul, .hours ul, .contact ul {
     list-style: none;
     padding: 0;
