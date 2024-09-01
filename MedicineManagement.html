@@ -8,7 +8,7 @@
 </head>
 <body>
     <!-- Sidebar -->
-    <div class="sidebar">
+    <!-- <div class="sidebar">
         <div class="logo">MediLab Hospital</div>
         <ul class="menu">
             <li><a href="#">Dashboard</a></li>
@@ -19,7 +19,7 @@
             <li><a href="#">Pharmacy</a></li>
             <li><a href="#">Patient</a></li>
         </ul>
-    </div>
+    </div> -->
 
     <!-- Main Content -->
     <div class="main-content">
@@ -41,15 +41,16 @@
                 </div>
                 <div class="form-group">
                     <input type="text" placeholder="Supplier Name">
-                    <input type="date" placeholder="Expire Date">
+                    <input type="text" placeholder="Manufacture Date" onfocus="(this.type='date')" onblur="(this.type='text')" />
+
                 </div>
                 <div class="form-group">
-                    <input type="date" placeholder="Manufacture Date">
+                    <input type="text" placeholder="Expiry Date" onfocus="(this.type='date')" onblur="(this.type='text')" />
                     <input type="number" placeholder="QTY">
                 </div>
                 <div class="form-group">
                     <input type="text" placeholder="Unit Price">
-                    <div class="currency-label">RS:</div>
+                    <!-- <div class="currency-label">RS:</div> -->
                 </div>
                 <div class="form-buttons">
                     <button class="btn add">Add</button>
