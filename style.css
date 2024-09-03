@@ -139,6 +139,7 @@ nav ul li a {
     cursor: pointer;
     position: relative;
     z-index: 10;
+    /* color: white; */
 }
 
 .sign-in {
