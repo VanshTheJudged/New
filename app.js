@@ -12,14 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // MySQL database connection
-const db = mysql.createConnection({
+const db1 = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: 'Sanjay@123',  // Update with your MySQL password
     database: 'mediLab'  // Your MySQL database
 });
 
-db.connect((err) => {
+db1.connect((err) => {
     if (err) {
         console.error('Error connecting to MySQL:', err);
         return;
@@ -28,7 +28,7 @@ db.connect((err) => {
 });
 
 // Route for handling form submissions
-app.post('/submit', (req, res) => {
+app.post('/submit-appointment', (req, res) => {
     const { first_name, last_name, email, mobile_number, nic, dob, gender, appointment_date, appointment_time, department, doctor_name, address } = req.body;
 
     // Generate a random ticket number
@@ -40,12 +40,31 @@ app.post('/submit', (req, res) => {
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `;
 
-    db.query(sql, [first_name, last_name, email, mobile_number, nic, dob, gender, appointment_date, appointment_time, department, doctor_name, address, ticket_no], (err, result) => {
+    db1.query(sql, [first_name, last_name, email, mobile_number, nic, dob, gender, appointment_date, appointment_time, department, doctor_name, address, ticket_no], (err, result) => {
         if (err) {
             console.error(err);
             res.status(500).send('Error inserting data into database');
         } else {
             res.status(200).send(`Appointment booked. Ticket No: ${ticket_no}`);
+        }
+    });
+});
+
+app.post('/submit-patient', (req, res) => {
+    const { patient_name, age, medical_condition, gender, bed_type } = req.body;
+
+    // Insert data into MySQL database
+    const sql = `
+        INSERT INTO patient (patient_name, age, medical_condition, gender, bed_type)
+        VALUES (?, ?, ?, ?, ?)
+    `;
+
+    db1.query(sql, [patient_name, age, medical_condition, gender, bed_type], (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send('Error inserting data into database');
+        } else {
+            res.status(200).send('Patient admitted.');
         }
     });
 });
