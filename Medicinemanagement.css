@@ -1,10 +1,10 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
-    display: flex;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 .dropdown {
     float: left;
@@ -89,6 +89,7 @@ nav ul li a {
     cursor: pointer;
     position: relative;
     z-index: 10;
+    /* color: white; */
 }
 
 .sign-in {

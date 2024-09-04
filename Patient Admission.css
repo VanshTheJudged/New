@@ -1,8 +1,9 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 .dropdown {
     float: left;
@@ -52,27 +53,11 @@ body {
     display: block;
 }
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
+    flex-grow: 1;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 2px solid #ccc;
-}
-
-h1 {
-    font-size: 24px;
-}
-
-.header-icons .icon {
-    font-size: 24px;
-    margin-left: 20px;
-}
 header {
     display: flex;
     justify-content: space-between;
@@ -109,6 +94,7 @@ nav ul li a {
     cursor: pointer;
     position: relative;
     z-index: 10;
+    /* color: white; */
 }
 
 .sign-in {
@@ -140,15 +126,6 @@ nav ul li a {
     font-size: 20px;
 }*/
 
-.add-button {
-    float: right;
-    background: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 /*table {
     width: 100%;
@@ -247,12 +224,6 @@ input {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
 }
 
 .admissions {
