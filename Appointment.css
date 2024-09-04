@@ -16,6 +16,39 @@ button.sign-in a:visited, button.topregister a:visited {
 label{
     padding: 10px 10px;    
 }
+.container {
+    flex-grow: 1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.bed-cards {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bed-card {
+    flex: 1;
+    background: #e9ecef;
+    margin: 0 10px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bed-card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.bed-card p {
+    font-size: 16px;
+}
+
+.bed-card span {
+    font-size: 24px;
+    font-weight: bold;
+}
 .dropdown {
     float: left;
     overflow: hidden;
@@ -69,6 +102,7 @@ header {
     align-items: center;
     background-color: #fff;
     padding: 15px 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .logo h1 {
