@@ -126,6 +126,7 @@ main.contact-page {
     margin: auto;
     background-color: #fff;
     border-radius: 8px;
+    box-shadow:-2px 2px 5px #333;
 }
 
 .contact-header h2 {
@@ -224,4 +225,3 @@ h3 {
     height: 8px;
     background-color: rgb(48, 48, 48);
 }
-
