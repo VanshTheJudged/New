@@ -7,25 +7,65 @@
     <link rel="stylesheet" href="signIn.css">
 </head>
 <body>
-    <div class="container">
-        <div class="signin-form">
-            <h2>Sign In</h2>
-            <form action="/login" method="post">
-                <div class="input-group">
-                    <label for="email">Email/Username:</label>
-                    <input type="email" id="email" name="email" required>
+    <header>
+        <div class="logo">
+            <h1>MediLab Hospital</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Appointment.html">Queue</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn">Services</button>
+                    <div class="dropdown-content">
+                        <a href="MedicineManagement.html">Medicine Management</a>
+                        <a href="PatientAdmission.html">Patient Admission</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <div class="signin-form">
+                <h2>Sign In</h2>
+                <form action="/login" method="post">
+                    <div class="input-group">
+                        <label for="email">Email/Username:</label>
+                        <input type="text" id="email" name="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <button type="submit">Sign In</button>
+                </form>
+                <div class="additional-options">
+                    <p><a href="#">Forgot your password?</a></p>
+                    <p>Don't have an account? <a href="#">Register</a></p>
                 </div>
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
-                </div>
-                <button type="submit">Sign In</button>
-            </form>
-            <div class="additional-options">
-                <p><a href="#">Forgot your password?</a></p>
-                <p>Don't have an account? <a href="#">Register</a></p>
             </div>
         </div>
-    </div>
+    </main>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>Ranja Hospital</h2>
+            </div>
+            <div class="quick-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Queue</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
