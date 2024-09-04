@@ -6,6 +6,14 @@ body {
     box-sizing: border-box;
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
+button.sign-in a, button.topregister a {
+    color: inherit; /* Inherit the color of the button */
+    text-decoration: none; /* Remove underline */
+}
+button.sign-in a:visited, button.topregister a:visited {
+    color: inherit; /* Inherit the color of the button */
+    text-decoration: none; /* Remove underline */
+}
 .dropdown {
     float: left;
     overflow: hidden;
@@ -98,6 +106,7 @@ nav ul li a {
     cursor: pointer;
     border-radius: 5px;
     background-color: #ddd;
+    color: #000;
 }
 
 .topregister {
