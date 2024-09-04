@@ -3,10 +3,10 @@
 /* General Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 button.sign-in a, button.topregister a {
     color: inherit; /* Inherit the color of the button */

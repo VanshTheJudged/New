@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
     overflow-x: hidden; /* Prevents horizontal scrolling */
 }
 button.sign-in a, button.topregister a {
