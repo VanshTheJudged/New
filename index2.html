@@ -7,66 +7,67 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <style>
-        #hospitals-popup {
-            display: none;
+        /* Existing CSS */
+        /* Add styles for the pop-up window */
+        #popup-container {
             position: fixed;
-            bottom: 80px;
-            left: 20px;
+            bottom: 0;
+            right: 0;
             width: 300px;
-            max-height: 60vh;
-            overflow-y: auto;
-            background-color: white;
+            max-height: 400px;
+            background-color: #fff;
             border: 1px solid #ddd;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
             z-index: 1000;
+            display: none; /* Hidden by default */
         }
 
-        #hospitals-popup-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 10px;
-            background-color: #007bff;
+        #popup-header {
+            background-color: #007BFF;
             color: white;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
-            cursor: move; /* To indicate it's draggable */
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            position: relative;
         }
 
-        #hospitals-popup-header h2 {
-            margin: 0;
-            font-size: 16px;
-        }
-
-        #hospitals-popup-header .close-btn {
-            font-size: 18px;
+        #popup-header button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
             cursor: pointer;
         }
 
+        #popup-content {
+            padding: 10px;
+        }
+
         .hospital {
-            margin: 10px;
+            margin-bottom: 20px;
             padding: 10px;
             border: 1px solid #ddd;
             border-radius: 5px;
+        }
+
+        .hospital h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .hospital p {
+            margin: 5px 0;
         }
 
         .map {
             height: 150px;
             border-radius: 5px;
             margin-top: 10px;
-        }
-
-        .nearest-hospitals-icon {
-            position: fixed;
-            bottom: 100px;
-            left: 20px;
-            width: 40px;
-            height: 40px;
-            background: url('hospital-icon.png') no-repeat center center;
-            background-size: contain;
-            cursor: pointer;
-            z-index: 1001;
         }
     </style>
 </head>
@@ -75,7 +76,7 @@
     <script src="https://mediafiles.botpress.cloud/962a9cc5-82cb-4cb5-8c09-fcb579d8db59/webchat/v2.1/config.js"></script>
     <header>
         <div class="logo">
-            <h1>MediLab Hospital</h1>
+            <h1>MediLab</h1>
         </div>
         <nav>
             <ul>
@@ -88,7 +89,7 @@
                     <div class="dropdown-content">
                         <a href="MedicineManagement.html">Medicine Management</a>
                         <a href="Patient Admission.html">Patient Admission</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Diagnostic Services</a>
                     </div>
                 </div> 
                 <li><a href="aboutus.html">About Us</a></li>
@@ -118,12 +119,8 @@
             <div class="biography-image">
                 <img src="image2.svg" alt="Biography Image">
             </div>
-            <p>
             <h2>Who We Are</h2>
-            We are a dedicated team focused on enhancing healthcare accessibility through technology.
-             Our platform simplifies the process of securing appointments for beds and medicine, 
-            offering real-time availability updates to ensure timely care for all.
-            </p>
+            <p>We are a dedicated team focused on enhancing healthcare accessibility through technology. Our platform simplifies the process of securing appointments for beds and medicine, offering real-time availability updates to ensure timely care for all.</p>
         </section>
         <br>
         <br>
@@ -135,7 +132,7 @@
     <footer>
         <div class="footer-content">
             <div class="logo">
-                <h3>Ranja Hospital</h3>
+                <h3>MediLab Hospital</h3>
             </div>
             <div class="quick-links">
                 <h4>Quick Links</h4>
@@ -167,25 +164,19 @@
             </div>
         </div>
     </footer>
+    <br>
 
-    <!-- Nearest Hospitals Pop-up Window -->
-    <div class="nearest-hospitals-icon" onclick="toggleHospitals()"></div>
-    <div id="hospitals-popup">
-        <div id="hospitals-popup-header">
-            <h2>Nearest Hospitals</h2>
-            <span class="close-btn" onclick="toggleHospitals()">×</span>
+    <!-- Nearest Hospitals Pop-up -->
+    <div id="popup-container">
+        <div id="popup-header">
+            Nearest Hospitals
+            <button id="popup-close">&times;</button>
         </div>
-        <div id="hospitals-container"></div>
+        <div id="popup-content"></div>
     </div>
 
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        // Toggle visibility of the hospitals pop-up window
-        function toggleHospitals() {
-            const popup = document.getElementById('hospitals-popup');
-            popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
-        }
-
         function getLocation() {
             if (navigator.geolocation) {
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
@@ -230,7 +221,7 @@
         }
 
         function displayHospitals(hospitals) {
-            const container = document.getElementById('hospitals-container');
+            const container = document.getElementById('popup-content');
             container.innerHTML = '<h2>Top 10 Nearest Hospitals</h2>';
             
             // Limit to top 10 hospitals
@@ -261,9 +252,32 @@
             });
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            getLocation();
+        function togglePopup() {
+            const popup = document.getElementById('popup-container');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+            if (popup.style.display === 'block') {
+                getLocation();
+            }
+        }
+
+        document.getElementById('popup-close').addEventListener('click', function() {
+            document.getElementById('popup-container').style.display = 'none';
         });
+
+        // Add a button to toggle the popup
+        const toggleButton = document.createElement('button');
+        toggleButton.textContent = 'Show Nearest Hospitals';
+        toggleButton.style.position = 'fixed';
+        toggleButton.style.bottom = '20px';
+        toggleButton.style.right = '20px';
+        toggleButton.style.padding = '10px 20px';
+        toggleButton.style.border = 'none';
+        toggleButton.style.backgroundColor = '#007BFF';
+        toggleButton.style.color = 'white';
+        toggleButton.style.borderRadius = '5px';
+        toggleButton.style.cursor = 'pointer';
+        toggleButton.addEventListener('click', togglePopup);
+        document.body.appendChild(toggleButton);
     </script>
 </body>
 </html>
