@@ -14,6 +14,35 @@ button.sign-in a:visited, button.topregister a:visited {
     color: inherit; /* Inherit the color of the button */
     text-decoration: none; /* Remove underline */
 }
+footer {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-content ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-content ul li {
+    margin-bottom: 5px;
+}
+.quick-links ul, .hours ul, .contact ul {
+    list-style: none;
+    padding: 0;
+}
 .dropdown {
     float: left;
     overflow: hidden;
@@ -281,4 +310,8 @@ table tbody tr:hover {
 
 table tbody tr:last-child td {
     border-bottom: none;
+}
+.separation{
+    height: 8px;
+    background-color: rgb(48, 48, 48);
 }
